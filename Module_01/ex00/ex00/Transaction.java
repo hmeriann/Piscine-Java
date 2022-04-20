@@ -18,10 +18,10 @@ public class   Transaction {
         this.transferAmount = transferAmount;
 
         if (transferAmount < 0) {
-            transferCategory = TransferCategory.CREDIT;
+            transferCategory = TransferCategory.DEBIT;
         }
         else {
-            transferCategory = TransferCategory.DEBIT;
+            transferCategory = TransferCategory.CREDIT;
         }
         if (sender.getBalance() < 0 || sender.getBalance() < transferAmount || (transferAmount < 0 && recipient.getBalance() < (-transferAmount)))
             System.out.print("Transaction cannot be completed: You have not right amount on your balance\n");

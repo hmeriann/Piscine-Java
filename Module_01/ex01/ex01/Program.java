@@ -1,4 +1,4 @@
-package ex00;
+package ex01;
 
 public class Program {
     public static void main(String args[]){
@@ -18,12 +18,10 @@ public class Program {
         System.out.println("Created User <" + jerry.getName() + "> with ID <" +  jerry.getIdentifier() + ">.\n His balance is <" + jerry.getBalance() + ">$.");
 
         Transaction toJerry = new Transaction(tom, jerry, 300);
-        System.out.println("The transfer category is " + toJerry.getTransferCategory() + " for " + tom.getName());
         System.out.println("Created User <" + tom.getName() + "> with ID <" +  tom.getIdentifier() + ">.\n His balance is <" + tom.getBalance() + ">$.");
         System.out.println("Created User <" + jerry.getName() + "> with ID <" +  jerry.getIdentifier() + ">.\n His balance is <" + jerry.getBalance() + ">$.");
 
         Transaction negativeToJerry = new Transaction(tom, jerry, -400);
-        System.out.println("The transfer category is " + negativeToJerry.getTransferCategory() + " for " + tom.getName());
         System.out.println("Created User <" + tom.getName() + "> with ID <" +  tom.getIdentifier() + ">.\n His balance is <" + tom.getBalance() + ">$.");
         System.out.println("Created User <" + jerry.getName() + "> with ID <" +  jerry.getIdentifier() + ">.\n His balance is <" + jerry.getBalance() + ">$.");
     }
