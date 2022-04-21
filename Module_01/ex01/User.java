@@ -5,7 +5,11 @@ public class User {
     private String  name;
     private Integer balance;
 
-    public User() {}
+    public User(String name, Integer balance) {
+        this.identifier = UserIdsGenerator.getInstance().generateId();
+        setName(name);
+        setBalance(balance);
+    }
 
     public String getName() {
         return name;
@@ -17,10 +21,6 @@ public class User {
 
     public Integer getIdentifier() {
         return identifier;
-    }
-
-    public void setIdentifier(Integer identifier) {
-        this.identifier = identifier;
     }
 
     public Integer getBalance() {

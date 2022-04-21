@@ -26,3 +26,17 @@ is created) and cannot be modified later during the program execution.
     public User(...) {
     this . id = UserIdsGenerator.getInstance().generateId();
     }
+
+   getInstance() - метод, который предоставляет объект:
+   public class Singleton {
+     private static Singleton instance;
+     private Singleton () {}
+
+     public static Singleton getInstance() {
+       if (instance == null) {
+         instance = new Singleton();
+       }
+       return instance;
+     }
+   }
+   https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom
