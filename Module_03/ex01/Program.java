@@ -10,7 +10,6 @@ public class Program {
             System.exit(1);
         }
         count = getCount(args[0]);
-        Thread t = Thread.currentThread();
         Thread egg = new Thread(new Egg(count));
         Thread hen = new Thread(new Hen(count));
 
@@ -19,17 +18,6 @@ public class Program {
 
         egg.join();
         hen.join();
-
-        for (int i = 0; i < count; i++)
-        {
-            System.out.println("Human");
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                System.out.println("Thread had been interrupted");
-                e.getStackTrace();
-            }
-        }
 
     }
 
