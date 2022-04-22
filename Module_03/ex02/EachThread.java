@@ -1,33 +1,35 @@
 public class EachThread implements Runnable {
     int from;
     int to;
-    int sectionSize;
+    int[] sum;
     int[] randomArray;
     int threadsCount;
-    int sumByThread;
+    Object lock;
 
-    EachThread(int from, int to, int sectionSize, int[] randomArray, int threadsCount) {
+    EachThread(int from, int to, int[] sum, int[] randomArray, int threadsCount, Object lock) {
         this.from = from;
         this.to = to;
-        this.sectionSize = sectionSize;
+        this.sum = sum;
         this.randomArray = randomArray;
         this.threadsCount = threadsCount;
+        this.lock = lock;
     }
-
 
     @Override
     public void run() {
-        sumByThread = Program.getSumEachThread(from, to, randomArray);
-        System.out.print("Thread " + threadsCount + " from ");
-        System.out.println(from + " to " + to + " sum is " + sumByThread);
-//
-//        for (int i = 0; i < (i * threadsCount + this.sectionSize); i++) {
-//            sumByThread = sumByThread + randomArray[i];
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
+        int startSum = this.sum[0];
+        int startFrom = this.from;
+        for (; this.from < this.to; this.from++) {
+            synchronized (lock) {
+                this.sum[0] +=this.randomArray[this.from];
+            }
+        }
+        System.out.print("Thread " + (this.threadsCount + 1) + " from " + startFrom);
+        if (this.to != (this.randomArray.length - 1)) {
+            System.out.println(" to " + (this.to - 1) + " sum is " + (this.sum[0] - startSum));
+        } else {
+            System.out.println(" to " + (this.to) + " sum is " + (this.sum[0] - startSum));
+        }
     }
+
 }
