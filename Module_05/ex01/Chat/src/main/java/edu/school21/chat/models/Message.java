@@ -10,6 +10,15 @@ public class Message {
 	private String messageText;
 	private LocalDateTime messageDateTime;
 
+	public Message(Integer messageId, User messageAuthor, Chatroom messageRoom, String messageText, LocalDateTime messageDateTime) {
+		this.messageId = messageId;
+		this.messageAuthor = messageAuthor;
+		this.messageRoom = messageRoom;
+		this.messageText = messageText;
+		this.messageDateTime = messageDateTime;
+	}
+
+
 	public long getMessageId() {
 		return messageId;
 	}
