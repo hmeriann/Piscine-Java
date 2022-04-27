@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Module_06</artifactId>
+  <artifactId>ex00</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Module_06</name>
+  <name>ex00</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -63,13 +63,13 @@
       <type>maven-plugin</type>
     </dependency>
 
-  <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
-  <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.8.2</version>
-    <scope>test</scope>
-  </dependency>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
     <dependency>
@@ -89,5 +89,4 @@
 
 
   </dependencies>
-
 </project>
