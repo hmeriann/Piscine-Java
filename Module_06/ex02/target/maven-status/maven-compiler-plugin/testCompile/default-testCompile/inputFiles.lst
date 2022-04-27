@@ -1,2 +1,3 @@
-/Users/zu/Documents/School21/Level5/Piscine-Java/Module_06/ex01/src/test/java/edu/school21/repositories/EmbeddedDataSourceTest.java
-/Users/zu/Documents/School21/Level5/Piscine-Java/Module_06/ex01/src/test/java/edu/school21/numbers/NumberWorkerTest.java
+/Users/zu/Documents/School21/Level5/Piscine-Java/Module_06/ex02/src/test/java/edu/school21/repositories/EmbeddedDataSourceTest.java
+/Users/zu/Documents/School21/Level5/Piscine-Java/Module_06/ex02/src/test/java/edu/school21/repositories/ProductsRepositoryJdbcImplTest.java
+/Users/zu/Documents/School21/Level5/Piscine-Java/Module_06/ex02/src/test/java/edu/school21/numbers/NumberWorkerTest.java
