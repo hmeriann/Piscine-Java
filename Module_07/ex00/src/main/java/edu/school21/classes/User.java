@@ -5,15 +5,12 @@ import java.util.StringJoiner;
 public class User {
     private String firstName;
     private String lastName;
-    private int height;
-
-    private Car usersCar;
+    private Integer height;
 
     public User() {
         this.firstName = "Default first name";
         this.lastName = "Default last name";
         this.height = 0;
-        this.usersCar = new Car();
     }
 
     public User(String firstName, String lastName, int height) {

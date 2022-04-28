@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Chatroom {
 
-	private Integer chatroomId;
+	private Long chatroomId;
 	private String chatroomName;
 	private User chatroomOwner;
 	private List<Message> messagesInChatroom;
@@ -41,7 +41,7 @@ public class Chatroom {
 		return chatroomId;
 	}
 
-	public void setChatroomId(Integer chatroomId) {
+	public void setChatroomId(Long chatroomId) {
 		this.chatroomId = chatroomId;
 	}
 

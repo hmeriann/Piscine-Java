@@ -4,18 +4,19 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Message {
-	private Integer messageId;
+	private static Long prevId = (long)1;
+	private Long messageId;
 	private User messageAuthor;
 	private Chatroom messageRoom;
 	private String messageText;
 	private LocalDateTime messageDateTime;
 
-	public Message(Integer messageId, User messageAuthor, Chatroom messageRoom, String messageText, LocalDateTime messageDateTime) {
-		this.messageId = messageId;
+	public Message(User messageAuthor, Chatroom messageRoom, String messageText) {
+		this.messageId = Message.prevId++;
 		this.messageAuthor = messageAuthor;
 		this.messageRoom = messageRoom;
 		this.messageText = messageText;
-		this.messageDateTime = messageDateTime;
+		this.messageDateTime = LocalDateTime.now();
 	}
 
 
@@ -23,7 +24,7 @@ public class Message {
 		return messageId;
 	}
 
-	public void setMessageId(Integer messageId) {
+	public void setMessageId(Long messageId) {
 		this.messageId = messageId;
 	}
 

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class User {
-	private Integer userId;
+	private Long userId;
 	private String login;
 	private String password;
 	private List<Chatroom> createdRooms;
@@ -19,7 +19,7 @@ public class User {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
