@@ -1,63 +1,99 @@
 package school21.spring.service.repositories;
 
-import com.zaxxer.hikari.HikariDataSource;
 import school21.spring.service.models.User;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UsersRepositoryJdbcImpl implements UsersRepository {
 
-	private final DataSource dataSource;
+	private DataSource dataSource;
 
 	UsersRepositoryJdbcImpl(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	@Override
-	public Optional findById(Long id) {
-		return Optional.empty();
+	public Optional<User> findById(Long id) throws SQLException {
+
+		Connection connection = dataSource.getConnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("select * from users where id = " + id);
+		if (!resultSet.next())
+			throw new RuntimeException("No users with such id" + id);
+		User user = new User(resultSet.getLong(1), resultSet.getString(2));
+		statement.close();
+		connection.close();
+		return Optional.of(user);
 	}
 
 	@Override
-	public List findAll() throws SQLException {
+	public List<User> findAll() {
 		List<User> userList = new ArrayList<>();
 		try {
 			Connection connection = dataSource.getConnection();
-			System.out.println(connection);
 			Statement statement = connection.createStatement();
+
 			ResultSet resultSet = statement.executeQuery("select * from users");
+			while (resultSet.next()) {
+				userList.add(new User(resultSet.getLong(1), resultSet.getString(2)));
+			}
+			statement.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-
-		return null;
+		return userList;
 	}
 
 	@Override
-	public void save(Object entity) {
+	public void save(User user) throws SQLException {
+		Connection connection = dataSource.getConnection();
+		PreparedStatement preparedStatementstatement = connection.prepareStatement("insert into users(email) values (?)");
 
+		preparedStatementstatement.setString(1, user.getEmail());
+		preparedStatementstatement.execute();
+		preparedStatementstatement.close();
+		connection.close();
 	}
 
 	@Override
-	public void update(Object entity) {
+	public void update(User user) throws SQLException {
+		Connection connection = dataSource.getConnection();
+		PreparedStatement preparedStatementstatement = connection.prepareStatement("update users set email = ? where id = " + user.getId());
 
+		preparedStatementstatement.setString(1, user.getEmail());
+		preparedStatementstatement.execute();
+		preparedStatementstatement.close();
+		connection.close();
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(Long id) throws SQLException {
+		Connection connection = dataSource.getConnection();
+		PreparedStatement preparedStatementstatement = connection.prepareStatement("delete from users where id = " + id);
 
+		preparedStatementstatement.execute();
+		preparedStatementstatement.close();
+		connection.close();
 	}
 
 	@Override
-	public Optional findByEmail(String email) {
-		return Optional.empty();
+	public Optional<User> findByEmail(String email) throws SQLException {
+		User user = null;
+		Connection connection = dataSource.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement("select * from users where email = ?;");
+		preparedStatement.setString(1, email);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		if (!resultSet.next())
+			throw new RuntimeException("No users with such email" + email);
+		user = new User(resultSet.getLong(1), resultSet.getString(2));
+		preparedStatement.close();
+		connection.close();
+		return Optional.of(user);
 	}
 }

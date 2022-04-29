@@ -9,6 +9,10 @@ public class User {
 		this.email = email;
 	}
 
+	public User(String email) {
+		this.email = email;
+	}
+
 
 	public Long getId() {
 		return id;
