@@ -14,10 +14,16 @@
         <option value="$PROJECT_DIR$/Module_07/ex00/pom.xml" />
         <option value="$PROJECT_DIR$/Module_08/ex00/pom.xml" />
         <option value="$PROJECT_DIR$/Module_08/pom.xml" />
+        <option value="$PROJECT_DIR$/Module_08/ex00/Spring-folder/pom.xml" />
+        <option value="$PROJECT_DIR$/Module_08/ex01/Service-folder/pom.xml" />
+        <option value="$PROJECT_DIR$/Module_08/ex01/Service/pom.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
   </component>
 </project>

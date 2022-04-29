@@ -9,17 +9,19 @@
         <module name="Module_08" />
         <module name="Module_06" />
         <module name="Module_05" />
+        <module name="Service" />
         <module name="ex02" />
         <module name="ex01" />
         <module name="ex00" />
         <module name="ex00 (2)" />
+        <module name="Spring" />
         <module name="ex00 (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ex00 (2)" target="1.8" />
       <module name="Module_05" target="8" />
       <module name="Module_06" target="1.8" />
+      <module name="Spring" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

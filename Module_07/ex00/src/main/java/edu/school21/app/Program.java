@@ -176,22 +176,22 @@ public class Program {
         for (Method method : methods) {
             if (methodName.equals(method.getName())) {
 
-                System.out.println("Enter " + method.getGenericParameterTypes().() + " value:");
+//                System.out.println("Enter " + method.getGenericParameterTypes().() + " value:");
                 System.out.print("->");
                 Scanner scanner1 = new Scanner(System.in);
                 String fieldVal = scanner1.next();
                 method.setAccessible(true);
-                try {
-                    method.set(object, fieldVal);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    method.set(object, fieldVal);
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                }
             } else {
                 System.out.println("No such field for the object: " + methodName);
                 break;
             }
         }
-        System.out.println("Object updated: " + object);
+//        System.out.println("Object updated: " + object);
 
     }
 }
