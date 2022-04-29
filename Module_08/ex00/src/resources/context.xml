@@ -13,4 +13,10 @@
         <constructor-arg name="renderer" ref="rendererErr"/>
         <property name="prefix" value="Prefix "/>
     </bean>
+
+<!--    <bean id="printerWithPrefix" class="printer.PrinterWithPrefixImpl">-->
+<!--        <constructor-arg name="renderer" ref="rendererErr"/>-->
+<!--        <constructor-arg type="String" value="Prefix"/>-->
+<!--        <property name="prefix" value="Prefix "/>-->
+<!--    </bean>-->
 </beans>
